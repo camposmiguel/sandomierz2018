@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="nombre_jugador_1">Nombre jugador 1</string>
+    <string name="nombre_jugador_2">Nombre jugador 2</string>
+    <string name="jugar">JUGAR</string>
+    <string name="vs">VS</string>
+    <string name="p1">p1</string>
+    <string name="p2">p2</string>
+    <string name="es_el_turno_de">Es el turno de: </string>
+    <string name="jugador">jugador</string>
+    <string name="el_ganador_es">El ganador es...</string>
+    <string name="men_de_inicio">Menú de inicio</string>
+    <string name="volver_a_jugar">Volver a jugar</string>
+    <string name="resetear">Resetear</string>
+</resources>

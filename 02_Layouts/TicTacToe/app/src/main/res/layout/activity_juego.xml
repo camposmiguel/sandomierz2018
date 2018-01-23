@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.averano.tictactoe.JuegoActivity">
+
+
+    <ImageView
+        android:id="@+id/imageViewTL"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="100dp"
+        android:onClick="tap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewTC"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:onClick="tap"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewTR"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTL"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewTR"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="100dp"
+        android:onClick="tap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewML"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="tap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTL"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewMC"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:onClick="tap"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewMR"
+        app:layout_constraintStart_toEndOf="@+id/imageViewML"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTC"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewMR"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="24dp"
+        android:onClick="tap"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTR"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewBL"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:onClick="tap"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewML"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewBR"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="24dp"
+        android:onClick="tap"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMR"
+        app:srcCompat="@drawable/square" />
+
+    <ImageView
+        android:id="@+id/imageViewBC"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="tap"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewBR"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBL"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMC"
+        app:srcCompat="@drawable/square" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/vs"
+        android:textColor="#000"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewTC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/p1"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewTL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/p2"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewTR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/turnoDe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/es_el_turno_de"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBC"
+        tools:text="Es el turno de: " />
+
+    <TextView
+        android:id="@+id/NombreTurno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/jugador"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBR" />
+</android.support.constraint.ConstraintLayout>
