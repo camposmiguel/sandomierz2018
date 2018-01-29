@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(email.equals("luke@lightside.com") && pass.equals("theforce")) {
             Intent i = new Intent(this, UserActivity.class);
+            i.putExtra("email",email);
             startActivity(i);
         } else {
             editTextEmail.setError("The email is incorrect!");
