@@ -1,6 +1,7 @@
 package com.miguelcr.a01_duckhunt;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -129,8 +130,10 @@ public class GameActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("View Ranking", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                Intent i = new Intent(GameActivity.this, RankingActivity.class);
+                startActivity(i);
                 // User cancelled the dialog
                 dialog.dismiss();
             }
