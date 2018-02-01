@@ -20,7 +20,8 @@
         <activity
             android:name=".NewAirActivity"
             android:label="@string/title_activity_new_air"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RemoteControlActivity"></activity>
     </application>
 
 </manifest>

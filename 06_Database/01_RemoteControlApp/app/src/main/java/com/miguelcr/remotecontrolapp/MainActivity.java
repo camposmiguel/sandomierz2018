@@ -6,15 +6,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     ListView lista;
     RealmResults<AirConditionerItem> airConditionerItemList;
     Realm realm;
+    AirConditionerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         airConditionerItemList = realm.where(AirConditionerItem.class).findAll();
 
         // Create the Adapter
-        AirConditionerAdapter adapter = new AirConditionerAdapter(
+        adapter = new AirConditionerAdapter(
                 this,
                 R.layout.air_conditioner_list_item,
                 airConditionerItemList
@@ -39,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
         // Link the Adapter and the ListView
         lista.setAdapter(adapter);
 
+        // Add the on item click event
+        lista.setOnItemClickListener(this);
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.air_conditioners_menu, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -65,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void showNewAirDialog() {
         Intent i = new Intent(this, NewAirActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Update the list of Air Conditioners
+        airConditionerItemList = realm.where(AirConditionerItem.class).findAll();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i = new Intent(this, RemoteControlActivity.class);
         startActivity(i);
     }
 }
