@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import io.realm.Realm;
+
 public class GameActivity extends AppCompatActivity {
     TextView textViewTimer, textViewNick, textViewDucks;
     ImageView imageViewDuck;
@@ -24,11 +26,15 @@ public class GameActivity extends AppCompatActivity {
     String nick;
     boolean gameOver = false;
     CountDownTimer countDownTimer;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        // 1. Init the default database
+        realm = Realm.getDefaultInstance();
 
         // Get the nickname value
         Bundle extras = getIntent().getExtras();
@@ -56,6 +62,20 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 textViewTimer.setText("Game over!");
                 gameOver = true;
+
+                // Insert the new result into the Database
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        RankItem rank = new RankItem();
+                        rank.setNick(nick);
+                        rank.setPoints(counter);
+
+                        // Insert the rank object into Database
+                        realm.copyToRealm(rank);
+                    }
+                });
+
             }
         }.start();
 
